@@ -1,15 +1,15 @@
-# PostgreSQL. Versions 9.1 and up are supported.
+# greSQL. Versions 9.1 and up are supported.
 #
 # Install the pg driver:
 #   gem install pg
 # On OS X with Homebrew:
 #   gem install pg -- --with-pg-config=/usr/local/bin/pg_config
 # On OS X with MacPorts:
-#   gem install pg -- --with-pg-config=/opt/local/lib/postgresql84/bin/pg_config
+#   gem install pg -- --with-pg-config=/opt/local/lib/gresql84/bin/pg_config
 # On Windows:
 #   gem install pg
 #       Choose the win32 build.
-#       Install PostgreSQL and put its /bin directory on your path.
+#       Install greSQL and put its /bin directory on your path.
 #
 # Configure Using Gemfile
 # gem 'pg'
@@ -25,13 +25,13 @@ development:
   <<: *default
   database: kel-personal-website_development
 
-  # The specified database role being used to connect to postgres.
-  # To create additional roles in postgres see `$ createuser --help`.
-  # When left blank, postgres will use the default role. This is
+  # The specified database role being used to connect to gres.
+  # To create additional roles in gres see `$ createuser --help`.
+  # When left blank, gres will use the default role. This is
   # the same name as the operating system user that initialized the database.
   #username: kel-personal-website
 
-  # The password associated with the postgres role (username).
+  # The password associated with the gres role (username).
   #password:
 
   # Connect on a TCP socket. Omitted by default since the client uses a
@@ -71,7 +71,7 @@ test:
 # On Heroku and other platform providers, you may have a full connection URL
 # available as an environment variable. For example:
 #
-#   DATABASE_URL="postgres://myuser:mypass@localhost/somedatabase"
+#   DATABASE_URL="gres://myuser:mypass@localhost/somedatabase"
 #
 # You can use this database configuration with:
 #
@@ -81,5 +81,4 @@ test:
 production:
   <<: *default
   database: kel-personal-website_production
-  username: kel-personal-website
-  password: <%= ENV['KEL-PERSONAL-WEBSITE_DATABASE_PASSWORD'] %>
+

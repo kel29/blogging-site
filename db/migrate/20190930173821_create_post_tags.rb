@@ -1,7 +1,7 @@
-class CreatePostTags < ActiveRecord::Migration[5.1]
+class CreateBlogTags < ActiveRecord::Migration[5.1]
   def change
-    create_table :post_tags do |t|
-      t.integer :post_id
+    create_table :blog_tags do |t|
+      t.integer :blog_id
       t.integer :tag_id
 
       t.timestamps

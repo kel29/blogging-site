@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   resources :tags
-  resources :post_tags
   resources :comments
   resources :blogs
   resources :users

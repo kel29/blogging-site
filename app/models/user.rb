@@ -1,4 +1,4 @@
 class User < ApplicationRecord
-  has_many :posts
+  has_many :blogs
   validates :name, presence: true
 end
