@@ -11,7 +11,7 @@ User.create(name: "Krista Loven")
 5.times do
   Blog.create(
     title: Faker::Lorem.sentence(word_count: 5),
-    content: Faker::Lorem.paragraph(sentence_count: 5),
+    content: Faker::Lorem.paragraph(sentence_count: 15),
     likes: 0,
     user_id: 1
   )

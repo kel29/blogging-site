@@ -1,2 +1,2 @@
-module TagsHelper
+module BlogTagsHelper
 end
