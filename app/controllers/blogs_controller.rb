@@ -1,11 +1,8 @@
 class BlogsController < ApplicationController
-  before_action :set_blog, only: [:show, :edit, :update, :destroy]
+  before_action :set_blog, only: [:show, :edit, :update, :destroy, :like]
 
   def index
     @blogs = Blog.all
-  end
-
-  def show
   end
 
   def new
@@ -21,15 +18,17 @@ class BlogsController < ApplicationController
     end
   end
 
-  def edit
-  end
-
   def update
     if @blog.update(blog_params)
       redirect_to @blog
     else
       render :edit
     end
+  end
+
+  def like
+    @blog.like_post
+    redirect_to @blog
   end
 
   def destroy

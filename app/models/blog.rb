@@ -6,4 +6,9 @@ class Blog < ApplicationRecord
   validates :title, presence: true
   validates :title, uniqueness: true
   validates :content, presence: true
+
+  def like_post
+    self.likes += 1
+    save
+  end
 end
