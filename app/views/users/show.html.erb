@@ -1,0 +1,6 @@
+<h1><%= @user.name %></h1>
+<ul>
+  <% @user.blogs.each do |blog| %>
+    <li><%= link_to blog.title, blog %></li>
+  <% end %>
+</ul>
