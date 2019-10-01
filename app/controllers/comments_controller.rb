@@ -1,14 +1,25 @@
 class CommentsController < ApplicationController
+  before_action :set_blog
 
   def create
-    byebug
-    blog = Blog.find(params[:blog_id])
-    @new_comment = Comment.new(params.permit(:commentator, :content, :blog_id))
-    if @new_comment.save
-      redirect_to blog
+    @comment = Comment.new(params.permit(:commentator, :content, :blog_id))
+    if @comment.save
+      redirect_to @blog
     else
-      render blog
+      render @blog
     end
+  end
+
+  def destroy
+    @comment = Comment.find(params[:id])
+    @comment.destroy
+    redirect_to @blog
+  end
+
+  private
+
+  def set_blog
+    @blog = Blog.find(params[:blog_id])
   end
 
 end

@@ -11,9 +11,11 @@
 <h5>Comments:</h5>
 <% @blog.comments.each do |comment| %>
   <%= comment.commentator + ": " + comment.content %><br>
+  <%= form_with url: "/blogs/#{params[:id]}/comments/#{comment.id}" do |f| %>
+    <%= f.submit "Delete" %>
+  <% end %>
+  <br>
 <% end %>
-
-<% byebug %>
 
 <%= form_with url: "/blogs/#{params[:id]}/comments" do |f| %>
   <%= f.label "Name" %>

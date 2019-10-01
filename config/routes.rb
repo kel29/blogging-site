@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get '/users/:id', to: 'users#show', as: 'users'
   get '/like/:id', to: 'blogs#like', as: 'like'
   resources :blogs do
-    resources :comments, only: [:create, :destroy]
+    post '/comments', to: 'comments#create', as: 'blog_comments'
+    post '/comments/:id', to: 'comments#destroy'
   end
 end
