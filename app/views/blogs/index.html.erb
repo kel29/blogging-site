@@ -1,4 +1,13 @@
 <h1>Blog posts</h1>
+
+<%= flash[:search_error] %>
+
+<%= form_tag blogs_path, method: 'get' do %>
+  <%= label_tag :query, "Search through blog posts by tag:" %>
+  <%= text_field_tag :query %>
+  <%= submit_tag "search" %>
+<% end %>
+
 <ul>
 <% @blogs.each do |blog| %>
   <li><%= link_to blog.title, blog %></li>

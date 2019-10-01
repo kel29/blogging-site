@@ -3,13 +3,23 @@ class BlogsController < ApplicationController
 
   def index
     @blogs = Blog.all
+    
+    if params[:query]
+      @tag = Tag.find_by(tag_name: params[:query])
+      if @tag
+        @blogs = Blog.all.select { |blog| blog.tags.include?(@tag) }
+      else
+        flash[:search_error] = "Currently there are not any articles with that tag"
+        render :index
+      end
+    end
   end
 
   def new
     @blog = Blog.new
   end
 
-  def create 
+  def create
     @blog = Blog.new(blog_params)
     if @blog.save
       redirect_to @blog
@@ -43,7 +53,7 @@ class BlogsController < ApplicationController
   end
 
   def blog_params
-    params.require(:blog).permit(:title, :content, :likes, :user_id, tag_ids: [])
+    params.require(:blog).permit(:title, :content, :likes, :user_id, :query, tag_ids: [])
   end
 
 end

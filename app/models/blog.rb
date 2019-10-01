@@ -11,4 +11,5 @@ class Blog < ApplicationRecord
     self.likes += 1
     save
   end
+
 end
