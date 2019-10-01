@@ -8,3 +8,17 @@
 <p><%= @blog.content %></p>
 
 ❤️<%=@blog.likes%><%= link_to " like this post", like_path(@blog) %>
+<h5>Comments:</h5>
+<% @blog.comments.each do |comment| %>
+  <%= comment.commentator + ": " + comment.content %><br>
+<% end %>
+
+<% byebug %>
+
+<%= form_with url: "/blogs/#{params[:id]}/comments" do |f| %>
+  <%= f.label "Name" %>
+  <%= f.text_field :commentator %>
+  <%= f.label "Comment" %>
+  <%= f.text_area :content %>
+  <%= f.submit "Add comment" %>
+<% end %>
