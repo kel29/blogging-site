@@ -16,6 +16,7 @@ class BlogsController < ApplicationController
   end
 
   def new
+    redirect(blogs_path)
     @blog = Blog.new
   end
 
@@ -26,6 +27,10 @@ class BlogsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def edit
+    redirect(@blog)
   end
 
   def update
@@ -42,6 +47,7 @@ class BlogsController < ApplicationController
   end
 
   def destroy
+    redirect(@blog)
     @blog.destroy
     redirect_to blogs_path
   end

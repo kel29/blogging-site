@@ -6,4 +6,7 @@ Rails.application.routes.draw do
     post '/comments', to: 'comments#create', as: 'comments'
     delete '/comments/:id', to: 'comments#destroy', as: 'comment'
   end
+  get '/login', to: 'auth#login', as: 'login'
+  post '/login', to: 'auth#verify'
+  get '/logout', to: 'auth#logout'
 end

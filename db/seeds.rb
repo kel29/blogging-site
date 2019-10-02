@@ -6,12 +6,12 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-User.create(name: "Krista Loven")
+User.create(name: "Krista Loven", email: "krista.loven.87@gmail.com")
  
 5.times do
   Blog.create(
-    title: Faker::Lorem.sentence(word_count: 5),
-    content: Faker::Lorem.paragraph(sentence_count: 15),
+    title: Faker::Hipster.sentence(word_count: 5),
+    content: Faker::Hipster.paragraph(sentence_count: 15),
     likes: 0,
     user_id: 1
   )
@@ -20,7 +20,7 @@ end
 8.times do
   Comment.create(
     commentator: Faker::FunnyName.name,
-    content: Faker::Lorem.sentence(word_count: 7),
+    content: Faker::Hipster.sentence(word_count: 7),
     blog_id: rand(1..5)
   )
 end
