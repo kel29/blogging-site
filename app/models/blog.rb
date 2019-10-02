@@ -12,4 +12,12 @@ class Blog < ApplicationRecord
     save
   end
 
+  def self.featured_blog
+    order('likes DESC')
+  end
+
+  def self.most_recent
+    order('created_at DESC')
+  end
+
 end
