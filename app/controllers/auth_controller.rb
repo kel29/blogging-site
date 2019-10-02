@@ -6,7 +6,7 @@ class AuthController < ApplicationController
     @user = User.find_by(name: params[:name])
     if @user && @user.email == params[:email]
       session[:user_id] = @user.id
-      redirect_to users_path(@user)
+      redirect_to user_path(@user)
     else
       flash[:login_error] = "Invalid login credentials. Please try again."
       redirect_to :login
