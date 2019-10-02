@@ -2,12 +2,12 @@ class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :update, :destroy, :like]
 
   def index
-    @blogs = Blog.all
+    @blogs = Blog.all.order('created_at DESC')
     
     if params[:query]
       @tag = Tag.find_by(tag_name: params[:query])
       if @tag
-        @blogs = Blog.all.select { |blog| blog.tags.include?(@tag) }
+        @blogs = Blog.all.order('likes DESC').select { |blog| blog.tags.include?(@tag) }
       else
         flash[:search_error] = "Currently there are not any articles with that tag"
         render :index
