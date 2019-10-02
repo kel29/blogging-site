@@ -1,15 +1,32 @@
-<h1>Blog posts</h1>
+<head>
+</head>
 
-<%= flash[:search_error] %>
+<body>
+  <div class="wrapper">
+    <div class="header">
+      <h1>Blog posts</h1>
+    </div>
 
-<%= form_tag blogs_path, method: 'get' do %>
-  <%= label_tag :query, "Search through blog posts by tag:" %>
-  <%= text_field_tag :query %>
-  <%= submit_tag "search" %>
-<% end %>
+    <div class="body">
+      <div class="search">
+        <%= flash[:search_error] %>
 
-<ul>
-<% @blogs.each do |blog| %>
-  <li><%= link_to blog.title, blog %></li>
-<% end %>
-</ul>
+        <%= form_tag blogs_path, method: 'get' do %>
+          <%= label_tag :query, "Search through blog posts by tag:" %>
+          <%= text_field_tag :query %>
+          <%= submit_tag "search" %>
+        <% end %>
+      </div>
+
+      <div class="blogs_display">
+        <ul>
+        <% @blogs.each do |blog| %>
+          <li><%= link_to blog.title, blog %></li>
+        <% end %>
+        </ul>
+      </div>
+
+    </div>
+
+  </div>
+</body>
