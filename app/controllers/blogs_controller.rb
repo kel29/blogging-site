@@ -2,7 +2,9 @@ class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :update, :destroy, :like]
 
   def index
-    @blogs = Blog.all.order('created_at DESC')
+    @featured = Blog.featured_blog
+    @most_recent = Blog.most_recent
+    @rest_of_the_blogs = Blog.rest_of_the_blogs
     
     if params[:query]
       @tag = Tag.find_by(tag_name: params[:query])

@@ -7,23 +7,24 @@
     <!-- Most liked post -->
     <div class="jumbotron p-4 p-md-5 test-white rounded bd-dark">
       <div class="col-md-6 px-0">
-        <h1 class="display-4 font-italic">Featured blog title</h1>
+        <h1 class="display-4 font-italic"><%= @featured.title %></h1>
         <p class="lead my-3">This will be the blog subtitle</p>
         <p class="lead mb-0">
-          <a href="link to this blog post" class="text-white font-weight-bold">Continue reading... (need to add link to post)
+          <a href="<% blog_path(@featured) %>" class="text-white font-weight-bold">Continue reading... (need to fix link to post)
         </p>
       </div>
     </div>
 
     <!-- <div class="row md-1"> -->
-      <!-- Most recent post -->
+      <!-- Most recent posts -->
+    <% @most_recent.each do |blog| %>
       <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
         <div class="col p-4 d-flex flex-column position-static">
           <strong class="d-inline-block mb-2 text-primary">#first #three #tags</strong>
-          <h3 class="mb-0">Most Recent post title</h3>
+          <h3 class="mb-0"><%= blog.title %></h3>
           <div class="mb-1 text-muted">MM/DD</div>
           <p class="card-text mb-auto">This will be the blog subtitle</p>
-          <a href="link to blog post" class="text-white font-weight-bold">Continue reading... (need to add link to post)</a>
+          <a href="<% blogs_path(blog)%>" class="text-white font-weight-bold">Continue reading... (need to fix link to post)</a>
         </div>
         <div class="col-auto d-none d-lg-block">
           <svg class="bd-placeholder-image" width="200" height="250" xmlns="http://www.w3.org/200/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="placeholder">
@@ -33,24 +34,8 @@
           </svg>
         </div>
       </div>
+    <% end %>
 
-      <!-- Second most recent post -->
-      <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-        <div class="col p-4 d-flex flex-column position-static">
-          <strong class="d-inline-block mb-2 text-primary">#first #three #tags</strong>
-          <h3 class="mb-0">Most Recent post title</h3>
-          <div class="mb-1 text-muted">MM/DD</div>
-          <p class="card-text mb-auto">This will be the blog subtitle</p>
-          <a href="link to blog post" class="text-white font-weight-bold">Continue reading... (need to add link to post)</a>
-        </div>
-        <div class="col-auto d-none d-lg-block">
-          <svg class="bd-placeholder-image" width="200" height="250" xmlns="http://www.w3.org/200/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="placeholder">
-            <title>Placeholder</title>
-            <rect width="100%" height="100%" fill="#02111B"></rect>
-            <text x="25%" y="50%" fill="#7CFFC4" dy=".3em">Thumbnail</text>
-          </svg>
-        </div>
-      </div>
     <!-- </div> -->
   </div>
   
@@ -69,7 +54,7 @@
     <% end %>
 
     <ul>
-      <% @blogs.each do |blog| %>
+      <% @rest_of_the_blogs.each do |blog| %>
         <li><%= link_to blog.title, blog %></li>
       <% end %>
     </ul>

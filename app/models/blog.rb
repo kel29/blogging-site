@@ -13,11 +13,17 @@ class Blog < ApplicationRecord
   end
 
   def self.featured_blog
-    order('likes DESC')
+    order('likes DESC').first
   end
 
   def self.most_recent
-    order('created_at DESC')
+    order('created_at DESC').limit(2)
+  end
+
+  def self.rest_of_the_blogs
+    all.select do |blog|
+      blog != featured_blog && !most_recent.include?(blog)
+    end
   end
 
 end
