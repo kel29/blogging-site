@@ -1,11 +1,13 @@
 <%= form_with model: blog do |f| %>
   <% if blog.errors.any? %>
-    <p>There were some errors in your submission: </p>
-    <ul>
-      <% blog.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-    </ul>
+    <div class="alert alert-danger" role="alert">
+      <p>There were some errors in your submission: </p>
+      <ul>
+        <% blog.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
   <% end %>
 
   <%= field_with_errors if blog.errors[:title].any? %>

@@ -1,4 +1,9 @@
-<%= flash[:login_error] %>
+
+<% if flash[:login_error] %>
+  <div class="alert alert-danger" role="alert">
+    <%= flash[:login_error] %>
+  </div>
+<% end %>
 
 <%= form_with url: login_path do |f| %>
   <%= f.label 'Username:' %>

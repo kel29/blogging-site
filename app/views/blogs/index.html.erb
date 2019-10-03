@@ -1,32 +1,39 @@
-<body>
-  <div class="wrapper">
-    <div class="container-fluid">
-      <h1>Blog posts</h1>
-    
-      <div class="search">
-        <%= flash[:search_error] %>
 
+<div class="wrapper">
+  <div class="container-fluid">
+    <header class="blog-header py-3">
+      <div class="col-4 text-center">
+        <h1>Blog posts</h1>
+      </div>
+      
+      <div class="search">
+
+      <% if flash[:search_error] %>
+        <div class="alert alert-danger" role="alert">
+          <%= flash[:search_error] %>
+        </div>
+      <% end %>
+      
         <%= form_tag blogs_path, method: 'get' do %>
           <%= label_tag :query, "Search through blog posts by tag:" %>
           <%= text_field_tag :query %>
           <%= submit_tag "search" %>
         <% end %>
       </div>
-    </div>
-
-    <div class="body">
-      <div class="container">
-        <ul>
-        <% @blogs.each do |blog| %>
-          <li><%= link_to blog.title, blog %></li>
-        <% end %>
-        </ul>
-      </div>
-
-    </div>
-
-    <div class="footer">
+    </header>
+  </div>
+      
+  <div class="body">
+    <div class="container">
+      <ul>
+      <% @blogs.each do |blog| %>
+        <li><%= link_to blog.title, blog %></li>
+      <% end %>
+      </ul>
     </div>
 
   </div>
-</body>
+
+  <div class="footer">
+  </div>
+</div>
