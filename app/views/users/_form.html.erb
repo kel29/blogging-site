@@ -1,4 +1,9 @@
-<%= flash[:invalid_user] %>
+<% if flash[:invalid_user] %>
+  <div class="alert alert-danger" role="alert">
+    <%= flash[:invalid_user] %>
+  </div>
+<% end %>
+
 <%= form_with model: user do |f| %>
   <%= f.label 'Username:' %>
   <%= f.text_field :name %><br>
