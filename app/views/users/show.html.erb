@@ -1,11 +1,4 @@
 <h1><%= @user.name %></h1>
-
-<h3>About Me</h3>
-<p>This will be my bio, where I will sound smart and super employable.</p>
-<%= link_to "Linked In", "https://www.linkedin.com/in/krista-loven/", target: "_blank" %>
-<%= link_to "GitHub", "https://github.com/kel29", target: "_blank" %>
-
-
 <h3><%= link_to "Blog posts", blogs_path %></h3>
 <ul>
   <% @user.blogs.each do |blog| %>
