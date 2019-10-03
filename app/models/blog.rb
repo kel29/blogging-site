@@ -27,7 +27,11 @@ class Blog < ApplicationRecord
   end
 
   def first_three_tags
-    self.tags.limit(3)
+    tags.limit(3)
+  end
+
+  def publish_date
+    created_at.strftime('%B %d, %Y')
   end
 
 end

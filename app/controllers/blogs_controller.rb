@@ -9,7 +9,7 @@ class BlogsController < ApplicationController
     if params[:query]
       @tag = Tag.find_by(tag_name: params[:query])
       if @tag
-        @blogs = Blog.all.order('likes DESC').select { |blog| blog.tags.include?(@tag) }
+        @rest_of_the_blogs = Blog.all.order('likes DESC').select { |blog| blog.tags.include?(@tag) }
       else
         flash[:search_error] = "Currently there are not any articles with that tag"
         render :index

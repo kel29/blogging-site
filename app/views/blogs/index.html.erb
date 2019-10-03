@@ -20,9 +20,13 @@
     <% @most_recent.each do |blog| %>
       <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
         <div class="col p-4 d-flex flex-column position-static">
-          <strong class="d-inline-block mb-2 text-primary">#first #three #tags</strong>
+          <strong class="d-inline-block mb-2 text-primary">
+            <% blog.first_three_tags.each do |tag| %>
+              <%= link_to "#" + tag.tag_name, tags_path(tag) %>
+            <% end %>
+          </strong>
           <h3 class="mb-1"><%= blog.title %></h3>
-          <div class="mb-3 text-muted">MM/DD</div>
+          <div class="mb-3 text-muted"><%= blog.publish_date %></div>
           <p class="card-text mb-2">This will be the blog subtitle</p>
           <p class="font-weight-bold mb-0"><%= link_to "Continue reading...", blog_path(blog)%></p>
         </div>
