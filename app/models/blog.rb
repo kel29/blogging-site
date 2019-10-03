@@ -26,4 +26,8 @@ class Blog < ApplicationRecord
     end
   end
 
+  def first_three_tags
+    self.tags.limit(3)
+  end
+
 end
