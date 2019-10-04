@@ -19,7 +19,7 @@
   "dark": #02111B,
   "secondary": #525766,
   "info": #004E64,
-  "success": #7CFFC4
+  "success": #71E8B2
 );
 
 $text-colors: (
@@ -27,16 +27,18 @@ $text-colors: (
   "dark": #02111B,
   "secondary": #525766,
   "info": #004E64,
-  "success": #7CFFC4
+  "success": #71E8B2
 );
 
  @import 'bootstrap';
 
 a {
-  color: #7CFFC4;
+  color: #71E8B2;
 }
 
-
+.nav-text {
+  color: #02111B;
+}
 
 .jumbotron {
   background-color: #525766;
@@ -48,6 +50,10 @@ a:hover {
 
 .light-link a:hover {
   color: #EFFFFE;
+}
+
+.card-background {
+  background: #EDF1FF;
 }
 
  
