@@ -20,22 +20,24 @@
 
     
       <!-- Most recent posts -->
-    <div class="" >
-      <% @most_recent.each do |blog| %>
-        <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-          <div class="col p-4 d-flex flex-column position-static card-background">
-            <strong class="d-inline-block mb-2 text-dark">
-              <% blog.first_three_tags.each do |tag| %>
-                <%= link_to "#" + tag.tag_name, tags_path(tag) %>
-              <% end %>
-            </strong>
-            <h3 class="mb-1"><%= blog.title %></h3>
-            <div class="mb-3 text-info"><%= blog.publish_date %></div>
-            <p class="card-text mb-2"><%= blog.subtitle %></p>
-            <p class="font-weight-bold mb-0"><%= link_to "Continue reading...", blog_path(blog)%></p>
+    <div class="row">
+      <div class="card-deck">
+        <% @most_recent.each do |blog| %>
+          <div class="col-sm-6">
+            <div class="p-4 overflow-hidden mb-4 shadow-sm card card-background">
+              <strong class="">
+                <p><% blog.first_three_tags.each do |tag| %>
+                  <%= link_to "#" + tag.tag_name, tags_path(tag) %>
+                <% end %></p>
+              </strong>
+              <h3 class="mb-1"><%= blog.title %></h3>
+              <div class="mb-3 text-info"><%= blog.publish_date %></div>
+              <p class="card-text mb-2"><%= blog.subtitle %></p>
+              <p class="font-weight-bold mb-0"><%= link_to "Continue reading...", blog_path(blog)%></p>
+            </div>
           </div>
-        </div>
-      <% end %>
+        <% end %>
+      </div>
     </div>
     
   </div>
