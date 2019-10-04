@@ -1,31 +1,37 @@
-<%= form_with model: blog do |f| %>
-  <% if blog.errors.any? %>
-    <div class="alert alert-danger" role="alert">
-      <p>There were some errors in your submission: </p>
-      <ul>
-        <% blog.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
+<main class="container py-3">
+  <%= form_with model: blog do |f| %>
+    <% if blog.errors.any? %>
+      <div class="alert alert-danger" role="alert">
+        <p>There were some errors in your submission: </p>
+        <ul>
+          <% blog.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="text-center mb 4">
+      <%= field_with_errors if blog.errors[:title].any? %>
+      <div class="form-label-group">
+        <%= f.label "Post title:" %><br>
+        <%= f.text_field :title, class: 'form-control', autofocus: true %><br>
+      </div>
+
+      <%= f.label "Post subtitle:" %><br>
+      <%= f.text_area :subtitle, class: 'form-control', autofocus: true %><br>
+
+      <%= field_with_errors if blog.errors[:title].any? %>
+      <%= f.label "Post content:" %><br>
+      <%= f.text_area :content, class: 'form-control', autofocus: true %><br>
+
+      <%= f.label "Post author:" %>
+      <%= f.collection_select :user_id, User.all, :id, :name %><br>
+
+      <%= f.label "Post tags:" %><br>
+      <%= f.collection_check_boxes :tag_ids, Tag.all, :id, :tag_name %><br>
+
+      <%= f.submit %>
     </div>
   <% end %>
-
-  <%= field_with_errors if blog.errors[:title].any? %>
-  <%= f.label "Post title:" %><br>
-  <%= f.text_field :title %><br>
-
-  <%= f.label "Post subtitle:" %><br>
-  <%= f.text_area :subtitle %><br>
-
-  <%= field_with_errors if blog.errors[:title].any? %>
-  <%= f.label "Post content:" %><br>
-  <%= f.text_area :content %><br>
-
-  <%= f.label "Post author:" %><br>
-  <%= f.collection_select :user_id, User.all, :id, :name %><br>
-
-  <%= f.label "Post tags:" %><br>
-  <%= f.collection_check_boxes :tag_ids, Tag.all, :id, :tag_name %><br>
-
-  <%= f.submit %>
-<% end %>
+</main>

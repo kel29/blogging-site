@@ -30,8 +30,8 @@ $text-colors: (
   "success": #71E8B2
 );
 
- @import 'bootstrap';
-
+@import 'bootstrap';
+@import url('https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap');
 a {
   color: #71E8B2;
 }
@@ -56,7 +56,11 @@ a:hover {
   background: #FFF;
 }
 
-.page-backgrounds {
-  background: #EDF1FF;
+.page-background {
+  background: #EDEDED;
+}
+
+.perm-font {
+  font-family: 'Permanent Marker', cursive;
 }
  
