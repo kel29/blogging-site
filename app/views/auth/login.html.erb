@@ -1,16 +1,31 @@
+<div class="login">
+  <header class="container py-3">
+    <% if flash[:login_error] %>
+      <div class="alert alert-danger" role="alert">
+        <%= flash[:login_error] %>
+      </div>
+    <% end %>
+  </header>
 
-<% if flash[:login_error] %>
-  <div class="alert alert-danger" role="alert">
-    <%= flash[:login_error] %>
-  </div>
-<% end %>
+  <main class="container py-3">
+    <div class="text-center mb 4">
+      <h1 class="mb-3 font-weight-normal">Sign In</h1>
+      <%= form_with url: login_path do |f| %>
+        <div class="form-label-group">
+          <%= f.text_field :name, class: 'form-control', autofocus: true, placeholder: 'Username:' %><br>
+        </div>
 
-<%= form_with url: login_path do |f| %>
-  <%= f.label 'Username:' %>
-  <%= f.text_field :name %>
-  <%= f.label "Email:" %>
-  <%= f.text_field :email %>
-  <%= f.label 'Password:' %>
-  <%= f.password_field :password %>  
-  <%= f.submit "Login" %>  
-<% end %>
+        <div class="form-label-group">
+          <%= f.text_field :email, class: 'form-control', autofocus: true, placeholder: 'Email: ' %><br>
+        </div>
+
+        <div class="form-label-group">
+          <%= f.password_field :password, class: 'form-control', autofocus: true, placeholder: 'Password: ' %><br>  
+        </div>
+
+        <%= f.submit "Login", class: "btn btn-success mt-3 mb-3 text-dark text-center" %>  
+
+      <% end %>
+    </div>
+  </main>
+</div>
