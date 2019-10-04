@@ -1,17 +1,29 @@
-<% if flash[:invalid_user] %>
-  <div class="alert alert-danger" role="alert">
-    <%= flash[:invalid_user] %>
-  </div>
-<% end %>
+<header class="container py-3">
+  <% if flash[:invalid_user] %>
+    <div class="alert alert-danger" role="alert">
+      <%= flash[:invalid_user] %>
+    </div>
+  <% end %>
+</header>
+
 
 <%= form_with model: user do |f| %>
-  <%= f.label 'Username:' %>
-  <%= f.text_field :name %><br>
-  <%= f.label "Email:" %>
-  <%= f.text_field :email %><br>
-  <%= f.label 'Password:' %>
-  <%= f.password_field :password %><br>  
-  <%= f.label "Confirm your password:" %>
-  <%= f.password_field :password_confirmation %><br>
-  <%= f.submit "Sign Up" %>  
+  <div class="form-label-group">
+    <%= f.text_field :name, class: 'form-control', autofocus: true, placeholder: 'Username:' %><br>
+  </div>
+
+  <div class="form-label-group">
+    <%= f.text_field :email, class: 'form-control', autofocus: true, placeholder: 'Email: ' %><br>
+  </div>
+
+  <div class="form-label-group">
+    <%= f.password_field :password, class: 'form-control', autofocus: true, placeholder: 'Password: ' %><br>  
+  </div>
+
+  <div class="form-label-group">
+    <%= f.password_field :password_confirmation, class: 'form-control', autofocus: true, placeholder: 'Confirm Password: ' %><br>  
+  </div>
+
+  <%= f.submit "Sign up", class: "btn btn-success mt-3 text-dark text-center" %>  
+
 <% end %>

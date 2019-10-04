@@ -24,6 +24,7 @@ class BlogsController < ApplicationController
 
   def create
     @blog = Blog.new(blog_params)
+    @blog.likes = 0
     if @blog.save
       redirect_to @blog
     else
@@ -61,7 +62,7 @@ class BlogsController < ApplicationController
   end
 
   def blog_params
-    params.require(:blog).permit(:title, :content, :likes, :user_id, :query, tag_ids: [])
+    params.require(:blog).permit(:title, :content, :likes, :user_id, :query, :subtitle, tag_ids: [])
   end
 
 end

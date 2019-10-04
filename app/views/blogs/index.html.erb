@@ -15,21 +15,23 @@
 
     
       <!-- Most recent posts -->
-    <% @most_recent.each do |blog| %>
-      <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-        <div class="col p-4 d-flex flex-column position-static card-background">
-          <strong class="d-inline-block mb-2 text-dark">
-            <% blog.first_three_tags.each do |tag| %>
-              <%= link_to "#" + tag.tag_name, tags_path(tag) %>
-            <% end %>
-          </strong>
-          <h3 class="mb-1"><%= blog.title %></h3>
-          <div class="mb-3 text-info"><%= blog.publish_date %></div>
-          <p class="card-text mb-2"><%= blog.subtitle %></p>
-          <p class="font-weight-bold mb-0"><%= link_to "Continue reading...", blog_path(blog)%></p>
+    <div class="" >
+      <% @most_recent.each do |blog| %>
+        <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+          <div class="col p-4 d-flex flex-column position-static card-background">
+            <strong class="d-inline-block mb-2 text-dark">
+              <% blog.first_three_tags.each do |tag| %>
+                <%= link_to "#" + tag.tag_name, tags_path(tag) %>
+              <% end %>
+            </strong>
+            <h3 class="mb-1"><%= blog.title %></h3>
+            <div class="mb-3 text-info"><%= blog.publish_date %></div>
+            <p class="card-text mb-2"><%= blog.subtitle %></p>
+            <p class="font-weight-bold mb-0"><%= link_to "Continue reading...", blog_path(blog)%></p>
+          </div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
     
   </div>
   
@@ -41,20 +43,27 @@
       </div>
     <% end %>
 
-    <%= form_tag blogs_path, method: 'get' do %>
-      <%= label_tag :query, "Search through blog posts by tag:" %>
-      <%= text_field_tag :query %>
-      <%= submit_tag "search" %>
-    <% end %>
-
-    <ul>
-      <% @rest_of_the_blogs.each do |blog| %>
-        <li><%= link_to blog.title, blog %></li>
+    <div class="mb-3">
+      <%= form_tag blogs_path, method: 'get' do %>
+        <%= label_tag :query, "Search through blog posts by tag:" %>
+        <%= text_field_tag :query %>
+        <%= submit_tag "search" %>
       <% end %>
-    </ul>
+    </div>
+
+    <div class="blog-post-list">
+      <% @rest_of_the_blogs.each do |blog| %>
+         <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-3 shadow-sm position-relative">
+          <div class="col p-2 d-flex flex-column position-static card-background">
+            <p class="mb-0"><%= link_to blog.title, blog %></p>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
   </main>
 
-  <footer class="blog-footer" class="container-fluid">
+  <footer class="blog-footer text-center" class="container-fluid">
     <p>Built by Krista</p>
   </footer>
 
