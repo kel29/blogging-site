@@ -7,26 +7,28 @@
   <% end %>
 </header>
 
-<main class="container card-background border">
-  <div class="blog-post py-3 m-3">
-    <h1 class="blog-post-title headline-show mb-4"><%= @blog.title %></h1>
-    <h2 class="blog-post-subtitle mb-5 text-muted"><%= @blog.subtitle %></h2>
-    <h3 class="blog-post-meta">
-      <%= @blog.publish_date %> |
-      <%= link_to @blog.user.name, user_path(@blog.user) %>
-    </h3>
-    <h6 class="blog-post-tags mb-4">
-      <strong>
-        <% @blog.tags.each do |tag| %> 
-          <%= link_to "#" + tag.tag_name, tags_path(tag) %>
-        <% end %>
-      </strong>
-    </h6>
-    <p class="blog-post-body text-justify mb-4"><%= @blog.content %></p>
-  </div>
+<main class="container py-3">
+  <div class="card-background border rounded mb-4">
+    <div class="blog-post m-3">
+      <h1 class="blog-post-title headline-show mb-4"><%= @blog.title %></h1>
+      <h3 class="blog-post-subtitle mb-5 text-muted"><%= @blog.subtitle %></h3>
+      <h3 class="blog-post-meta">
+        <%= @blog.publish_date %> |
+        <%= link_to @blog.user.name, user_path(@blog.user) %>
+      </h3>
+      <h6 class="blog-post-tags mb-4">
+        <strong>
+          <% @blog.tags.each do |tag| %> 
+            <%= link_to "#" + tag.tag_name, tags_path(tag) %>
+          <% end %>
+        </strong>
+      </h6>
+      <p class="blog-post-body text-justify mb-4"><%= @blog.content %></p>
+    </div>
 
-  <div class="like-post mb-3">
-    ❤️<%=@blog.likes%><%= link_to " like this post", like_path(@blog) %>
+    <div class="like-post mb-3 text-center">
+      ❤️<%=@blog.likes%><%= link_to " like this post", like_path(@blog) %>
+    </div>
   </div>
 
   <div class="comments">
@@ -39,12 +41,11 @@
       <br>
     <% end %>
 
+    
     <%= form_with url: "/blogs/#{params[:id]}/comments" do |f| %>
-      <%= f.label "Name" %>
-      <%= f.text_field :commentator %>
-      <%= f.label "Comment" %>
-      <%= f.text_area :content %>
-      <%= f.submit "Add comment" %>
+      <%= f.text_field :commentator, class: 'form-control mb-3', autofocus: true, placeholder: 'Name' %>
+      <%= f.text_area :content, class: 'form-control mb-3', autofocus: true, placeholder: 'Comment' %>
+      <%= f.submit "Add comment", class: "btn btn-success mb-3 text-dark text-center" %>
     <% end %>
   </div>
 
