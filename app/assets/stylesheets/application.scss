@@ -14,4 +14,40 @@
  *= require_self
  */
 
+ $theme-colors: (
+  "light": #EFFFFE,
+  "dark": #02111B,
+  "secondary": #525766,
+  "info": #004E64,
+  "success": #7CFFC4
+);
+
+$text-colors: (
+  "light": #EFFFFE,
+  "dark": #02111B,
+  "secondary": #525766,
+  "info": #004E64,
+  "success": #7CFFC4
+);
+
  @import 'bootstrap';
+
+a {
+  color: #7CFFC4;
+}
+
+
+
+.jumbotron {
+  background-color: #525766;
+}
+
+a:hover {
+  color: #004E64;
+}
+
+.light-link a:hover {
+  color: #EFFFFE;
+}
+
+ 

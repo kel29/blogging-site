@@ -1,16 +1,14 @@
 
 <div class="wrapper">
-  <div class="container">
-    <header class="blog-header py-3">
-    </header>
+  <div class="container py-3">
       
     <!-- Most liked post -->
-    <div class="jumbotron p-4 p-md-5 test-white rounded bd-dark">
-      <div class="col-md-6 px-0">
-        <h1 class="display-4 font-italic"><%= @featured.title %></h1>
-        <p class="lead my-3">This will be the blog subtitle</p>
+    <div class="jumbotron p-4 p-md-5 test-white rounded bg-secondary">
+      <div class="col-md-10 px-0">
+        <h1 class="display-4 font-italic text-light"><%= @featured.title %></h1>
+        <p class="lead my-3 text-dark"><strong><%= @featured.subtitle %></strong></p>
         <p class="lead mb-0">
-          <p class="font-weight-bold"> <%= link_to "Continue reading...", @featured %></p>
+          <p class="font-weight-bold light-link"> <%= link_to "Continue reading...", @featured %></p>
         </p>
       </div>
     </div>
@@ -20,14 +18,14 @@
     <% @most_recent.each do |blog| %>
       <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
         <div class="col p-4 d-flex flex-column position-static">
-          <strong class="d-inline-block mb-2 text-primary">
+          <strong class="d-inline-block mb-2 text-dark">
             <% blog.first_three_tags.each do |tag| %>
               <%= link_to "#" + tag.tag_name, tags_path(tag) %>
             <% end %>
           </strong>
           <h3 class="mb-1"><%= blog.title %></h3>
-          <div class="mb-3 text-muted"><%= blog.publish_date %></div>
-          <p class="card-text mb-2">This will be the blog subtitle</p>
+          <div class="mb-3 text-info"><%= blog.publish_date %></div>
+          <p class="card-text mb-2"><%= blog.subtitle %></p>
           <p class="font-weight-bold mb-0"><%= link_to "Continue reading...", blog_path(blog)%></p>
         </div>
       </div>
