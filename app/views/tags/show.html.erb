@@ -1,11 +1,17 @@
-<header class="container py-3">
+<header class="container py-3 perm-font">
   <h1><%= "#" + @tag.tag_name %></h1>
 </header>
 
 <main class="container">
-  <ul>
-    <% @tag.blogs.each do |blog| %>
-      <li><%= link_to blog.title, blog %></li>
-    <% end %>
-  </ul>
+  <div class="blog-post-list">
+      <% @tag.blogs.each do |blog| %>
+        <div class="row no-gutters mb-3">
+          <div class="col">
+            <div class="card card-background p-2 ">
+              <h4 class="headline"><%= blog.title + " " %><%= link_to "Continue reading...", blog %></h4>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
 </main>

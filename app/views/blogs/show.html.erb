@@ -1,4 +1,4 @@
-<header class="container blog-header py-3">
+<header class="container blog-header">
   <% if admin_logged_in? %>
     <h4>
       <%= button_to "New Post", new_blog_path, method: 'get', class: "mb-3" %>
@@ -7,9 +7,9 @@
   <% end %>
 </header>
 
-<main class="container">
-  <div class="blog-post">
-    <h1 class="blog-post-title display-4 font-italic mb-3"><%= @blog.title %></h1>
+<main class="container card-background border">
+  <div class="blog-post py-3 m-3">
+    <h1 class="blog-post-title headline-show mb-4"><%= @blog.title %></h1>
     <h2 class="blog-post-subtitle mb-5 text-muted"><%= @blog.subtitle %></h2>
     <h3 class="blog-post-meta">
       <%= @blog.publish_date %> |

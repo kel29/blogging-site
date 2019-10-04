@@ -10,7 +10,7 @@
     <!-- Most liked post -->
     <div class="jumbotron p-4 p-md-5 test-white rounded bg-secondary">
       <div class="col-md-10 px-0">
-        <h1 class="display-4 font-italic text-light"><%= @featured.title %></h1>
+        <h1 class="display-4 headline text-light"><%= @featured.title %></h1>
         <p class="lead my-3 text-dark"><strong><%= @featured.subtitle %></strong></p>
         <p class="lead mb-0">
           <h3 class="font-weight-bold light-link"> <%= link_to "Continue reading...", @featured %></h3>
@@ -30,7 +30,7 @@
                   <%= link_to "#" + tag.tag_name, tags_path(tag) %>
                 <% end %></p>
               </strong>
-              <h3 class="mb-1"><%= blog.title %></h3>
+              <h2 class="mb-1 headline"><%= blog.title %></h2>
               <div class="mb-3 text-info"><%= blog.publish_date %></div>
               <p class="card-text mb-2"><%= blog.subtitle %></p>
               <p class="font-weight-bold mb-0"><%= link_to "Continue reading...", blog_path(blog)%></p>
@@ -60,9 +60,11 @@
 
     <div class="blog-post-list">
       <% @rest_of_the_blogs.each do |blog| %>
-         <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-3 shadow-sm position-relative">
-          <div class="col p-2 d-flex flex-column position-static card-background">
-            <p class="mb-0"><%= link_to blog.title, blog %></p>
+        <div class="row no-gutters mb-3">
+          <div class="col">
+            <div class="card card-background p-2 ">
+              <h4 class="headline"><%= blog.title + " " %><%= link_to "Continue reading...", blog %></h4>
+            </div>
           </div>
         </div>
       <% end %>

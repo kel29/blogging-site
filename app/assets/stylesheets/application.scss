@@ -32,6 +32,8 @@ $text-colors: (
 
 @import 'bootstrap';
 @import url('https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display&display=swap');
+
 a {
   color: #71E8B2;
 }
@@ -63,4 +65,19 @@ a:hover {
 .perm-font {
   font-family: 'Permanent Marker', cursive;
 }
+
+.headline {
+  font-family: 'Playfair Display', serif;
+  font-weight: bold;
+  font-style: italic;
+}
+
+.headline-show {
+  font-family: 'Playfair Display', serif;
+  font-weight: bold;
+  font-style: italic;
+  font-size: 5.5rem;
+}
+
+
  
